@@ -1,0 +1,9 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-sv
+async_fifo.sv
+async_fifo_tb.sv
+-top
+tb_async_fifo

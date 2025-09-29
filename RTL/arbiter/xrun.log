@@ -1,0 +1,72 @@
+xrun: 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun	22.03-s012: Started on Sep 24, 2025 at 03:21:36 CDT
+xrun
+	-sv
+	round_robin_arbiter.sv
+	round_robin_tb.sv
+	-top tb_prog_priorityArb
+Recompiling... reason: file './round_robin_arbiter.sv' is newer than expected.
+	expected: Wed Sep 24 03:17:16 2025
+	actual:   Wed Sep 24 03:21:34 2025
+file: round_robin_arbiter.sv
+	module worklib.round_robinArb:sv
+		errors: 0, warnings: 0
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		tb_prog_priorityArb
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.round_robinArb:sv <0x5ac8353b>
+			streams:   6, words:  3803
+		worklib.tb_prog_priorityArb:sv <0x472e3164>
+			streams:   7, words:  5992
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:              21      21
+		Scalar wires:            3       -
+		Vectored wires:          5       -
+		Always blocks:           2       2
+		Initial blocks:          2       2
+		Pseudo assignments:      4       4
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.tb_prog_priorityArb:sv
+Loading snapshot worklib.tb_prog_priorityArb:sv .................... Done
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /opt/coe/cadence/XCELIUM/tools/xcelium/files/xmsimrc
+xcelium> run
+Starting programmable priority arbiter testbench...
+[25000] Cycle=0 | req=1010 grant=0000 grant_ID=0
+[35000] Cycle=1 | req=0101 grant=0001 grant_ID=0
+[45000] Cycle=2 | req=1010 grant=0010 grant_ID=1
+[55000] Cycle=3 | req=0101 grant=0100 grant_ID=2
+[65000] Cycle=4 | req=1010 grant=1000 grant_ID=3
+[75000] Cycle=0 | req=0110 grant=0010 grant_ID=1
+[85000] Cycle=1 | req=1100 grant=0100 grant_ID=2
+[95000] Cycle=2 | req=1001 grant=0001 grant_ID=0
+[105000] Cycle=3 | req=0011 grant=0010 grant_ID=1
+[115000] Cycle=4 | req=0110 grant=0100 grant_ID=2
+[125000] Cycle=0 | req=1111 grant=1000 grant_ID=3
+[135000] Cycle=1 | req=1111 grant=0001 grant_ID=0
+[145000] Cycle=2 | req=1111 grant=0010 grant_ID=1
+[155000] Cycle=3 | req=1111 grant=0100 grant_ID=2
+[165000] Cycle=4 | req=1111 grant=1000 grant_ID=3
+[175000] Cycle=0 | req=0001 grant=0001 grant_ID=0
+[185000] Cycle=1 | req=0010 grant=0010 grant_ID=1
+[195000] Cycle=2 | req=0100 grant=0100 grant_ID=2
+[205000] Cycle=3 | req=1000 grant=1000 grant_ID=3
+[215000] Cycle=4 | req=0001 grant=0001 grant_ID=0
+[225000] Cycle=0 | req=1000 grant=1000 grant_ID=3
+[235000] Cycle=1 | req=0001 grant=0001 grant_ID=0
+[245000] Cycle=2 | req=0010 grant=0010 grant_ID=1
+[255000] Cycle=3 | req=0100 grant=0100 grant_ID=2
+[265000] Cycle=4 | req=1000 grant=1000 grant_ID=3
+Test complete.
+Simulation complete via $finish(1) at time 285 NS + 0
+./round_robin_tb.sv:50         $finish;
+xcelium> exit
+TOOL:	xrun	22.03-s012: Exiting on Sep 24, 2025 at 03:21:38 CDT  (total: 00:00:02)

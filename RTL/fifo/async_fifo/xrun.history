@@ -1,0 +1,6 @@
+s1(24Sep2025:01:13:34):  xrun -sv async_fifo.sv async_fifo_tb.sv -top tb_async_fifo 
+s2(24Sep2025:01:13:52):  xrun -sv async_fifo.sv async_fifo_tb.sv -top tb_async_fifo 
+s3(24Sep2025:01:14:07):  xrun -sv async_fifo.sv async_fifo_tb.sv -top tb_async_fifo 
+s4(24Sep2025:01:15:15):  xrun -sv async_fifo.sv async_fifo_tb.sv -top tb_async_fifo 
+s5(24Sep2025:01:17:42):  xrun -sv async_fifo.sv async_fifo_tb.sv -top tb_async_fifo 
+s6(24Sep2025:01:21:47):  xrun -sv async_fifo.sv async_fifo_tb.sv -top tb_async_fifo 

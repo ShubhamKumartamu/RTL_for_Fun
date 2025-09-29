@@ -1,0 +1,120 @@
+xrun: 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun	22.03-s012: Started on Sep 24, 2025 at 01:21:47 CDT
+xrun
+	-sv
+	async_fifo.sv
+	async_fifo_tb.sv
+	-top tb_async_fifo
+Recompiling... reason: file './async_fifo_tb.sv' is newer than expected.
+	expected: Wed Sep 24 01:17:38 2025
+	actual:   Wed Sep 24 01:21:44 2025
+file: async_fifo_tb.sv
+	module worklib.tb_async_fifo:sv
+		errors: 0, warnings: 0
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		tb_async_fifo
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.tb_async_fifo:sv <0x13bb06a7>
+			streams:  12, words: 15511
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:              29      29
+		Scalar wires:            8       -
+		Vectored wires:          2       -
+		Always blocks:           8       8
+		Initial blocks:          3       3
+		Cont. assignments:       2       2
+		Pseudo assignments:      5       5
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.tb_async_fifo:sv
+Loading snapshot worklib.tb_async_fifo:sv .................... Done
+SVSEED default: 1
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /opt/coe/cadence/XCELIUM/tools/xcelium/files/xmsimrc
+xcelium> run
+Starting async FIFO testbench...
+[28000] WRITE: data=aa wr_ptr=1 rd_ptr=0 fifo_count=1
+[44000] WRITE: data=b4 wr_ptr=2 rd_ptr=0 fifo_count=2
+[60000] WRITE: data=be wr_ptr=3 rd_ptr=0 fifo_count=3
+[76000] WRITE: data=c8 wr_ptr=4 rd_ptr=0 fifo_count=4
+[92000] WRITE: data=d2 wr_ptr=5 rd_ptr=0 fifo_count=5
+[108000] WRITE: data=dc wr_ptr=6 rd_ptr=0 fifo_count=6
+[124000] WRITE: data=e6 wr_ptr=7 rd_ptr=0 fifo_count=7
+[140000] WRITE: data=f0 wr_ptr=8 rd_ptr=0 fifo_count=8
+[156000] WRITE: data=fa wr_ptr=9 rd_ptr=0 fifo_count=9
+[172000] WRITE: data=04 wr_ptr=10 rd_ptr=0 fifo_count=10
+xmsim: *E,ERRSEV (./async_fifo_tb.sv,123): (time 186 NS).
+tb_async_fifo
+[186000] READ ERROR: expected=fa, got=aa rd_ptr=0 wr_ptr=10
+xmsim: *E,ERRSEV (./async_fifo_tb.sv,123): (time 210 NS).
+tb_async_fifo
+[210000] READ ERROR: expected=04, got=b4 rd_ptr=1 wr_ptr=10
+[234000] READ: data=be rd_ptr=2 wr_ptr=10 fifo_count=8
+[258000] READ: data=c8 rd_ptr=3 wr_ptr=10 fifo_count=7
+[282000] READ: data=d2 rd_ptr=4 wr_ptr=10 fifo_count=6
+xmsim: *W,OLDURR: The default algorithm for $urandom_range and randcase is used. It can have distribution problems..
+[306000] READ: data=dc rd_ptr=5 wr_ptr=10 fifo_count=5
+[318000] READ: data=e6 rd_ptr=6 wr_ptr=10 fifo_count=4
+[356000] WRITE: data=a8 wr_ptr=11 rd_ptr=7 fifo_count=4
+[364000] WRITE: data=0c wr_ptr=12 rd_ptr=7 fifo_count=5
+[366000] READ: data=f0 rd_ptr=7 wr_ptr=12 fifo_count=5
+[372000] WRITE: data=0c wr_ptr=13 rd_ptr=8 fifo_count=5
+xmsim: *E,ERRSEV (./async_fifo_tb.sv,123): (time 378 NS).
+tb_async_fifo
+[378000] READ ERROR: expected=fa, got=xx rd_ptr=8 wr_ptr=13
+[380000] WRITE: data=11 wr_ptr=14 rd_ptr=9 fifo_count=5
+[388000] WRITE: data=2c wr_ptr=15 rd_ptr=9 fifo_count=6
+xmsim: *E,ERRSEV (./async_fifo_tb.sv,123): (time 390 NS).
+tb_async_fifo
+[390000] READ ERROR: expected=04, got=xx rd_ptr=9 wr_ptr=15
+[396000] WRITE: data=2c wr_ptr=0 rd_ptr=10 fifo_count=6
+[404000] WRITE: data=1f wr_ptr=1 rd_ptr=10 fifo_count=7
+xmsim: *E,ERRSEV (./async_fifo_tb.sv,123): (time 414 NS).
+tb_async_fifo
+[414000] READ ERROR: expected=a8, got=xx rd_ptr=10 wr_ptr=1
+xmsim: *E,ERRSEV (./async_fifo_tb.sv,123): (time 438 NS).
+tb_async_fifo
+[438000] READ ERROR: expected=0c, got=xx rd_ptr=11 wr_ptr=1
+xmsim: *E,ERRSEV (./async_fifo_tb.sv,123): (time 450 NS).
+tb_async_fifo
+[450000] READ ERROR: expected=0c, got=xx rd_ptr=12 wr_ptr=1
+[452000] WRITE: data=4f wr_ptr=2 rd_ptr=13 fifo_count=5
+[460000] WRITE: data=dc wr_ptr=3 rd_ptr=13 fifo_count=6
+[468000] WRITE: data=dc wr_ptr=4 rd_ptr=13 fifo_count=7
+[476000] WRITE: data=07 wr_ptr=5 rd_ptr=13 fifo_count=8
+[484000] WRITE: data=22 wr_ptr=6 rd_ptr=13 fifo_count=9
+[492000] WRITE: data=22 wr_ptr=7 rd_ptr=13 fifo_count=10
+xmsim: *E,ERRSEV (./async_fifo_tb.sv,123): (time 498 NS).
+tb_async_fifo
+[498000] READ ERROR: expected=22, got=xx rd_ptr=13 wr_ptr=7
+[500000] WRITE: data=7c wr_ptr=8 rd_ptr=14 fifo_count=10
+[508000] WRITE: data=68 wr_ptr=9 rd_ptr=14 fifo_count=11
+[516000] WRITE: data=68 wr_ptr=10 rd_ptr=14 fifo_count=12
+xmsim: *E,ERRSEV (./async_fifo_tb.sv,123): (time 522 NS).
+tb_async_fifo
+[522000] READ ERROR: expected=22, got=xx rd_ptr=14 wr_ptr=10
+[524000] WRITE: data=ee wr_ptr=11 rd_ptr=15 fifo_count=12
+[532000] WRITE: data=ee wr_ptr=12 rd_ptr=15 fifo_count=13
+[540000] WRITE: data=ee wr_ptr=13 rd_ptr=15 fifo_count=14
+[548000] WRITE: data=ee wr_ptr=14 rd_ptr=15 fifo_count=15
+[556000] WRITE: data=ee wr_ptr=15 rd_ptr=15 fifo_count=0
+[564000] WRITE: data=ee wr_ptr=0 rd_ptr=15 fifo_count=1
+[572000] WRITE: data=ee wr_ptr=1 rd_ptr=15 fifo_count=2
+[580000] WRITE: data=ee wr_ptr=2 rd_ptr=15 fifo_count=3
+[588000] WRITE: data=ee wr_ptr=3 rd_ptr=15 fifo_count=4
+[596000] WRITE: data=ee wr_ptr=4 rd_ptr=15 fifo_count=5
+[604000] WRITE: data=ee wr_ptr=5 rd_ptr=15 fifo_count=6
+[612000] WRITE: data=ee wr_ptr=6 rd_ptr=15 fifo_count=7
+[620000] WRITE: data=ee wr_ptr=7 rd_ptr=15 fifo_count=8
+Test complete.
+Simulation complete via $finish(1) at time 622 NS + 0
+./async_fifo_tb.sv:87         $finish;
+xcelium> exit
+TOOL:	xrun	22.03-s012: Exiting on Sep 24, 2025 at 01:21:48 CDT  (total: 00:00:01)

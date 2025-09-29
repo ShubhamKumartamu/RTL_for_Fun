@@ -1,0 +1,8 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(24Sep2025:03:20:09):( xrun -sv fixed_priority_arbiter.sv programmed_priority_arbiter.sv round_robin_arbiter.sv round_robin_tb.sv -top tb_prog_priorityArb )
+s2::(24Sep2025:03:20:32):( xrun -sv round_robin_arbiter.sv round_robin_tb.sv -top tb_prog_priorityArb )
+s3::(24Sep2025:03:21:07):( xrun -sv round_robin_arbiter.sv round_robin_tb.sv -top tb_prog_priorityArb )
+s4::(24Sep2025:03:21:37):( xrun -sv round_robin_arbiter.sv round_robin_tb.sv -top tb_prog_priorityArb )
