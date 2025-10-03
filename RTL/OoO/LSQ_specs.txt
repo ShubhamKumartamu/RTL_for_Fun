@@ -1,0 +1,112 @@
+Load-Store Queue (LSQ) Specifications
+Parameters
+
+N: Number of LSQ entries (e.g., 16 or 32).
+
+AW: Address width.
+
+DW: Data width.
+
+Interfaces
+CPU → LSQ
+
+load_req : Load request valid.
+
+load_addr [AW-1:0] : Address for load.
+
+store_req : Store request valid.
+
+store_addr [AW-1:0] : Address for store.
+
+store_data [DW-1:0] : Data for store.
+
+store_commit : Signal from ROB indicating store is ready to commit.
+
+LSQ → CPU
+
+load_data [DW-1:0] : Data returned for load.
+
+load_valid : Indicates valid load data is available.
+
+LSQ → Memory
+
+mem_read_req : Memory read request valid.
+
+mem_read_addr [AW-1:0] : Memory read address.
+
+mem_read_id [$clog2(N)-1:0] : Request ID for matching responses.
+
+mem_write_req : Memory write request valid.
+
+mem_write_addr [AW-1:0] : Memory write address.
+
+mem_write_data [DW-1:0] : Memory write data.
+
+Memory → LSQ
+
+mem_read_resp_id [$clog2(N)-1:0] : Response ID for returning load.
+
+mem_read_data [DW-1:0] : Data returned from memory.
+
+mem_read_valid : Indicates valid memory read data.
+
+Internal LSQ Entry
+
+Each LSQ entry stores:
+
+valid : Entry allocated.
+
+is_load : 1 = load, 0 = store.
+
+addr [AW-1:0] : Address.
+
+data [DW-1:0] : Data (for store or completed load).
+
+committed : For stores, indicates ROB has committed.
+
+completed : For loads, indicates data is available.
+
+Functional Behavior
+Load Handling
+
+On new load request:
+
+Allocate LSQ entry.
+
+Check older uncommitted stores in LSQ:
+
+If matching store address with valid data → forward data to load.
+
+Else → send request to memory.
+
+Mark load entry as pending until data arrives or is forwarded.
+
+Store Handling
+
+On new store request:
+
+Allocate LSQ entry.
+
+Data held until commit signal from ROB.
+
+At commit: issue memory write request in order.
+
+Ordering Rules
+
+Stores must commit in program order.
+
+Loads may complete out-of-order, but must respect memory dependencies:
+
+If an older store with same address is pending, the load must wait or forward.
+
+Verification Goals
+
+Loads return correct data (from memory or store forwarding).
+
+Stores commit in-order.
+
+Loads do not bypass uncommitted older stores to the same address.
+
+Support multiple outstanding loads with variable memory latencies.
+
+ROB correctly controls store commit timing.
